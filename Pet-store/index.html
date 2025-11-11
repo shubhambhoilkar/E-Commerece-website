@@ -206,6 +206,44 @@
             navLinks.classList.toggle('show');
         });
     </script>
+    <script>
+  const buttons = document.querySelectorAll(".add-btn button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const productElement = e.target.closest(".product");
+      const name = productElement.querySelector("h3").innerText;
+      const priceText = productElement.querySelector(".price").innerText;
+      const image = productElement.querySelector("img").src;
+      const price = parseFloat(priceText.replace(/[^0-9.]/g, ""));
+
+      // Prepare product data
+      const product = { name, price, image, quantity: 1 };
+
+      // Get existing cart from localStorage
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Check if item already exists in cart
+      const existing = cart.find((item) => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      // Save back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Optional alert or toast
+      alert(`${name} added to cart!`);
+
+      // Redirect to Cart page
+      window.location.href = "pages/cart.html";
+    });
+  });
+</script>
+
 </body>
+
 
 </html>
