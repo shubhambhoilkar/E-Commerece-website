@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - PawPals</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
+  <!-- Shared CSS for consistent header -->
+  <link rel="stylesheet" href="../styles/globals.css">
+  <link rel="stylesheet" href="../styles/styles.css">
+
+  <!-- Embedded CSS -->
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fffaf6;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ---------- PAGE CONTENT ---------- */
+    main.page-content {
+      padding-top: 150px;
+      /* ensures content appears below navbar */
+      text-align: initial;
+      min-height: 70vh;
+    }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto 16px;
+      padding: 0 16px;
+    }
+
+    .page-header h1 {
+      font-family: 'Fredoka One', cursive;
+      color: #0077ff;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ensure product name is left-aligned */
+    .ci-name { text-align: left; }
+
+    button {
+      background-color: #0077ff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0077ff;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background-color: #0B1220;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-brand h2 {
+      font-family: 'Fredoka One', cursive;
+      color: #0077ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand p {
+      color: #ccc;
+      max-width: 300px;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #0077ff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid #444;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    section {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="left">
+      <div class="logo">
+        <a href="index.html"><img src="../assets/logo.png" alt="logo" class="nav-logo" height="80" width="80"></a>
+      </div>
+    </div>
+
+    <div class="right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="end">
+      <a href="#"><abbr title="Github"><i class='bx bxl-github'></i></abbr></a>
+      <a href="cart.html" class="cart-link"><abbr title="Cart"><i class='bx bx-cart'></i></abbr><span id="cart-count"
+          class="cart-count-badge">0</span></a>
+      <a href="#" class="hamburger"><i class='bx bx-menu'></i></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <section class="page-header">
+      <h1>Your Cart</h1>
+      <p>Review your items, adjust quantities, or proceed to checkout.</p>
+    </section>
+
+    <section>
+      <div class="cart-container">
+        <div class="cart-left">
+          <div id="cart-empty" class="empty-state" style="display:none;">
+            <div class="empty-graphic">🛒</div>
+            <h3>Your cart is empty</h3>
+            <p>Looks like you haven’t added anything yet.</p>
+            <div class="empty-actions">
+              <a class="btn-primary" href="index.html#Shop">Shop Featured</a>
+              <a class="btn-secondary" href="categories.html">Browse Categories</a>
+            </div>
+          </div>
+
+          <div id="cart-items" class="cart-list"></div>
+        </div>
+
+        <aside id="cart-summary" class="cart-summary" style="display:none;">
+          <div class="coupon">
+            <input id="coupon-code" placeholder="Have a coupon? Try PAWPALS10 or FREESHIP" />
+            <button id="apply-coupon" class="btn-secondary" type="button">Apply</button>
+          </div>
+          <div class="summary-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+          <div class="summary-row" style="display:none;"><span>Discount</span><span id="discount">₹0</span></div>
+          <div class="summary-row"><span>Shipping</span><span id="shipping">₹0</span></div>
+          <div class="summary-row total"><span>Total</span><span id="total">₹0</span></div>
+          <div class="summary-actions">
+            <button id="clear-cart" class="btn-secondary">Clear Cart</button>
+            <button id="checkout-btn" class="btn-primary" onclick="window.location.href='payment.html'">Proceed to
+              Checkout</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>PawPals</h2>
+        <p>Elevating pet care with premium products for your beloved companions.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Help center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns & refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter">
+        <h3>Newsletter</h3>
+        <p>Join our pack for offers, tips, and updates.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNews(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+          <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+          <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 PawPals. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS for Navbar Toggle -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+    function subscribeNews(e){
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input[type=\"email\"]');
+      const prev = btn.textContent;
+      btn.textContent = 'Subscribed ✓';
+      btn.style.background = '#16a34a';
+      setTimeout(()=>{btn.textContent = prev; btn.style.background = '#2563eb';}, 2000);
+      input.value='';
+      return false;
+    }
+  </script>
+  <script src="../assets/app.js"></script>
+</body>
+
+</html>

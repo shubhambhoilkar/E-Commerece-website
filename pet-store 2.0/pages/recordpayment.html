@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/globals.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+<!-- Replace "test" with your own sandbox Business account app client ID -->
+<script src="https://www.paypal.com/sdk/js?client-id=AWbx7X5oS49OIocU2Y1ZeFlwvetBHl91zD5DaT4j-gvBMfdsIszeFolNXJ5JhCp5hOaGt2Tomk-nwAUO&currency=USD"></script>
+<!-- Set up a container element for the button -->
+<div id="paypal-button-container"></div>
+<script>
+    paypal.Buttons({
+        // Sets up the transaction when a payment button is clicked
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '1.44' // Can also reference a variable or function
+                    }
+                }]
+            });
+        },
+        // Finalize the transaction after payer approval
+        // Finalize the transaction on the server after payer approval
+        onApprove: (data, actions) => {
+            return fetch(`/payments/${data.orderID}/capture`, {
+                method: "post",
+            })
+                .then((response) => response.json())
+                .then((orderData) => {
+                    // Successful capture! For dev/demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                    // alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+                    // When ready to go live, remove the alert and show a success message within this page. For example:
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+        }
+    }).render('#paypal-button-container');
+</script>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>PawPals</h2>
+        <p>Elevating pet care with premium products for your beloved companions.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Help center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns & refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter">
+        <h3>Newsletter</h3>
+        <p>Join our pack for offers, tips, and updates.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNews(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+          <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+          <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PawPals. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script>
+    function subscribeNews(e){
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input[type="email"]');
+      const prev = btn.textContent;
+      btn.textContent = 'Subscribed ✓';
+      btn.style.background = '#16a34a';
+      setTimeout(()=>{btn.textContent = prev; btn.style.background = '#2563eb';}, 2000);
+      input.value='';
+      return false;
+    }
+  </script>
+</body>
+</html>
+

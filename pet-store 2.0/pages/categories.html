@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - PawPals</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
+  <!-- Global + Styles CSS -->
+  <link rel="stylesheet" href="../styles/globals.css">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <style>
+    .page-content {
+      padding-top: 120px;
+      padding-bottom: 140px;
+    }
+
+    section {
+      height: 100%;
+      width: 100%;
+    }
+
+    footer {
+      position: static;
+      clear: both;
+      margin-top: 24px;
+    }
+
+    .page-header h1 {
+      font-family: 'Fredoka One', cursive;
+      color: #022A80;
+      text-align: center;
+      margin-bottom: 16px;
+      margin-top: 50px;
+    }
+
+    /* Products */
+    .filters {
+      max-width: 1100px;
+      margin: 18px auto 0;
+      padding: 0 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      background: #eef2ff;
+      color: #1f2937;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .chip.active {
+      background: #022a80;
+      color: #fff;
+    }
+
+    .products-grid {
+      max-width: 1100px;
+      margin: 18px auto 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      padding: 0 16px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid #eef2ff;
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: #22c55e;
+      color: #fff;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .product-img-wrap {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: #f8fafc;
+      overflow: hidden;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rating {
+      color: #f59e0b;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 14px;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 700;
+      min-height: 48px;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      color: #6b7280;
+      font-size: .9rem;
+      min-height: 38px;
+    }
+
+    .product-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .product-price {
+      color: #022a80;
+      font-weight: 800;
+    }
+
+    .product-card .add-to-cart {
+      background: #022a80;
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 640px) {
+      .product-name {
+        min-height: auto;
+      }
+
+      .product-desc {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="left">
+      <div class="logo">
+        <a href="index.html"><img src="../assets/logo.png" alt="PawPals Logo" class="nav-logo" height="80"
+            width="80"></a>
+      </div>
+    </div>
+
+    <div class="right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html" class="active">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="end">
+      <a href="#"><abbr title="Github"><i class='bx bxl-github'></i></abbr></a>
+      <a href="cart.html" class="cart-link"><abbr title="Cart"><i class='bx bx-cart'></i></abbr><span id="cart-count"
+          class="cart-count-badge">0</span></a>
+      <a href="#" class="hamburger"><i class='bx bx-menu'></i></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <section class="page-header">
+      <h1>Shop by Categories</h1>
+      <div class="filters" id="filters"></div>
+      <div class="products-grid" id="products-grid"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>PawPals</h2>
+        <p>Elevating pet care with premium products for your beloved companions.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="categories.html" class="active">Categories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Help center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns & refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter">
+        <h3>Newsletter</h3>
+        <p>Join our pack for offers, tips, and updates.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNews(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+          <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+          <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 PawPals. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Navbar Toggle Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+    function subscribeNews(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input[type="email"]');
+      const prev = btn.textContent;
+      btn.textContent = 'Subscribed ✓';
+      btn.style.background = '#16a34a';
+      setTimeout(() => { btn.textContent = prev; btn.style.background = '#2563eb'; }, 2000);
+      input.value = '';
+      return false;
+    }
+  </script>
+  <script src="../assets/products.js"></script>
+  <script>
+    (function () {
+      if (!window.PRODUCTS || !window.PRODUCT_CATEGORIES) return;
+      const grid = document.getElementById('products-grid');
+      const filters = document.getElementById('filters');
+      let active = 'All';
+
+      function renderFilters() {
+        filters.innerHTML = '';
+        PRODUCT_CATEGORIES.forEach(cat => {
+          const btn = document.createElement('button');
+          btn.className = 'chip' + (cat === active ? ' active' : '');
+          btn.textContent = cat;
+          btn.addEventListener('click', () => { active = cat; renderFilters(); renderProducts(); });
+          filters.appendChild(btn);
+        });
+      }
+
+      function renderProducts() {
+        const items = active === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === active);
+        grid.innerHTML = '';
+        items.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+          const badge = (p.category === 'Toys' || p.category === 'Food') ? 'Best Seller' : (p.price > 1500 ? 'Premium' : 'Popular');
+          const desc = (p.category === 'Food') ? 'Nutritious and tasty meals your pet will love.'
+            : (p.category === 'Beds') ? 'Cozy comfort for sound pet sleep.'
+              : (p.category === 'Grooming') ? 'Keep your buddy clean and shiny.'
+                : (p.category === 'Treats') ? 'Healthy bites for training and rewards.'
+                  : (p.category === 'Accessories') ? 'Daily essentials with style.'
+                    : (p.category === 'Healthcare') ? 'Wellness support for every stage.'
+                      : (p.category === 'Bowls & Feeders') ? 'Durable and convenient feeding gear.'
+                        : (p.category === 'Litter & Hygiene') ? 'Odour control and easy clean-up.'
+                          : (p.category === 'Training') ? 'Tools to build good habits.'
+                            : 'Loved by pet parents.';
+          const rating = (Math.round((4 + Math.random()) * 10) / 10).toFixed(1); // 4.0 - 5.0
+          const stars = `
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx bxs-star'></i>
+            <i class='bx ${Number(rating) > 4.5 ? 'bxs-star' : 'bx-star'}'></i>`;
+          card.innerHTML = `
+            <span class="badge">${badge}</span>
+            <div class="product-img-wrap">
+              <img class="product-img" src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='https://picsum.photos/seed/${p.id}-fallback/400/300';">
+            </div>
+            <div class="rating">${stars} <span>${rating}</span></div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${desc}</div>
+            <div class="product-foot">
+              <div class="product-price">₹${p.price.toLocaleString('en-IN')}</div>
+              <button class="add-to-cart" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-image="${p.image}">Add to Cart</button>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+        // Rebind add-to-cart buttons using global binder from app.js
+        if (window.pawpalsBindAddToCart) window.pawpalsBindAddToCart();
+      }
+
+      renderFilters();
+      renderProducts();
+      // category cards removed; chips drive filtering
+    })();
+  </script>
+  <script src="../assets/app.js"></script>
+</body>
+
+</html>

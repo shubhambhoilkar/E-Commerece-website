@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - PawPals</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- Global and Page-specific Styles -->
+  <link rel="stylesheet" href="../styles/globals.css">
+  <link rel="stylesheet" href="../styles/styles.css">
+
+  <style>
+    main.page-content {
+      padding-top: 150px;
+      padding-bottom: 80px;
+    }
+
+    .page-header {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 20px;
+      height: auto !important;
+    }
+
+    /* left-align content inside the contact area while keeping title centered */
+    .contact-section,
+    .info-card,
+    .form-card,
+    .faq {
+      text-align: left;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-align: left;
+      color: #333;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #0077ff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 119, 255, 0.3);
+    }
+
+    .contact-form button {
+      background-color: #0077ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #005fcc;
+    }
+
+    @media (max-width: 768px) {
+      .contact-form {
+        width: 85%;
+      }
+    }
+    /* additional layout for contact page */
+    .contact-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 50px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .info-card, .form-card, .map-card, .faq {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 22px;
+    }
+
+    .info-card h3, .faq h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      color: #1f2937;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin: 12px 0 4px;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .info-item i {
+      font-size: 22px;
+      color: #0077ff;
+    }
+
+    .hours {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .socials a {
+      height: 38px;
+      width: 38px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #f3f4f6;
+      color: #111827;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .socials a:hover {
+      transform: translateY(-2px);
+      background: #0077ff;
+      color: #fff;
+    }
+
+    .form-card .contact-form {
+      width: 100%;
+      margin: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .contact-form select {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: 0.3s;
+      background: #fff;
+    }
+
+    .form-status {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #065f46;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 8px 10px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 280px;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    .faq details {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .map-card iframe {
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .input-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="left">
+      <div class="logo">
+        <a href="index.html">
+          <img src="../assets/logo.png" alt="logo" class="nav-logo" height="80" width="80">
+        </a>
+      </div>
+    </div>
+
+    <div class="right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="end">
+      <a href="#"><abbr title="Github"><i class='bx bxl-github'></i></abbr></a>
+      <a href="cart.html" class="cart-link"><abbr title="Cart"><i class='bx bx-cart'></i></abbr><span id="cart-count" class="cart-count-badge">0</span></a>
+      <a href="#" class="hamburger"><i class='bx bx-menu'></i></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <section class="page-header">
+      <h1>Contact Us</h1>
+      <div class="contact-section">
+        <div class="contact-grid">
+          <div class="info-card">
+            <h3>Get in touch</h3>
+            <div class="info-list">
+              <div class="info-item">
+                <i class='bx bx-envelope'></i>
+                <div>
+                  <strong>Email</strong><br>
+                  support@pawpals.store
+                </div>
+              </div>
+              <div class="info-item">
+                <i class='bx bx-phone'></i>
+                <div>
+                  <strong>Phone</strong><br>
+                  +91 00000 00000
+                </div>
+              </div>
+              <div class="info-item">
+                <i class='bx bx-map'></i>
+                <div>
+                  <strong>Address</strong><br>
+                  221B Baker Street, Navi-Mumbai, IN
+                </div>
+              </div>
+            </div>
+            <div class="hours">
+              <strong>Hours</strong><br>
+              Mon–Sat: 9:00 AM – 7:00 PM<br>
+              Sun: 10:00 AM – 4:00 PM
+            </div>
+            <div class="socials">
+              <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+              <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+              <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form class="contact-form" onsubmit="return showAlert(event)">
+              <div class="input-row">
+                <div>
+                  <label for="name">Full name</label>
+                  <input id="name" name="name" type="text" placeholder="Enter your name" required>
+                </div>
+                <div>
+                  <label for="email">Email address</label>
+                  <input id="email" name="email" type="email" placeholder="Enter your email" required>
+                </div>
+              </div>
+
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a subject</option>
+                <option>Product inquiry</option>
+                <option>Order & shipping</option>
+                <option>Returns & refunds</option>
+                <option>Other</option>
+              </select>
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message..." minlength="10" required></textarea>
+
+              <button type="submit">Send Message</button>
+              <div id="form-status" class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="map-card">
+            <h3>Find us</h3>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31516.XXXXXX!2d72.99!3d19.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be8XXXXXXXXXX!2sKopar%20Khairane%2C%20Navi%20Mumbai!5e0!3m2!1sen!2sin!4v1700000000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="faq">
+            <h3>FAQ</h3>
+            <details>
+              <summary>How soon do you respond?</summary>
+              <p>We usually reply within 24 hours on business days.</p>
+            </details>
+            <details>
+              <summary>Do you offer vet consultations?</summary>
+              <p>We can connect you with partner vets and trainers. Mention it in your message.</p>
+            </details>
+            <details>
+              <summary>Where do you ship?</summary>
+              <p>We ship across India with standard and express options at checkout.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>PawPals</h2>
+        <p>Elevating pet care with premium products for your beloved companions.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Help center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns & refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter">
+        <h3>Newsletter</h3>
+        <p>Join our pack for offers, tips, and updates.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNews(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+          <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+          <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PawPals. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS for Navbar Toggle and Form Alert -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    function showAlert(e) {
+      e.preventDefault();
+      const form = e.target;
+      const status = document.getElementById('form-status');
+      const name = form.querySelector('#name')?.value?.trim();
+      const email = form.querySelector('#email')?.value?.trim();
+      const message = form.querySelector('#message')?.value?.trim();
+
+      if (!name || !email || !message || message.length < 10) {
+        status.style.display = 'block';
+        status.style.background = '#fef2f2';
+        status.style.borderColor = '#fecaca';
+        status.style.color = '#991b1b';
+        status.textContent = 'Please complete all fields. Message must be at least 10 characters.';
+        return false;
+      }
+
+      status.style.display = 'block';
+      status.style.background = '#ecfdf5';
+      status.style.borderColor = '#a7f3d0';
+      status.style.color = '#065f46';
+      status.textContent = 'Thanks! Your message has been sent. We’ll get back to you soon.';
+      form.reset();
+      return false;
+    }
+    function subscribeNews(e){
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input[type="email"]');
+      const prev = btn.textContent;
+      btn.textContent = 'Subscribed ✓';
+      btn.style.background = '#16a34a';
+      setTimeout(()=>{btn.textContent = prev; btn.style.background = '#2563eb';}, 2000);
+      input.value='';
+      return false;
+    }
+  </script>
+  <script src="../assets/app.js"></script>
+</body>
+
+</html>

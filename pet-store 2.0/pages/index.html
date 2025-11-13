@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawPals</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fredoka+One&display=swap"
+    rel="stylesheet">
+
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../styles/globals.css">
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="left">
+      <div class="logo">
+        <a href="index.html">
+          <img src="../assets/logo.png" alt="logo" class="nav-logo" height="80" width="80">
+        </a>
+      </div>
+    </div>
+
+    <div class="right">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="end">
+      <a href="#"><abbr title="Github"><i class='bx bxl-github'></i></abbr></a>
+      <a href="cart.html" class="cart-link"><abbr title="Cart"><i class='bx bx-cart'></i></abbr><span id="cart-count" class="cart-count-badge">0</span></a>
+      <a href="#" class="hamburger"><i class='bx bx-menu'></i></a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main>
+    <section id="Hero">
+      <div class="left-content">
+        <h1>Everything for happy pets</h1>
+        <p>Premium food, toys, and care—picked with love for your best friend.</p>
+        <div class="actions">
+          <a href="#Shop" class="btn btn-primary">Shop Featured <i class='bx bx-right-arrow-circle'></i></a>
+          <a href="categories.html" class="btn btn-secondary">Browse Categories</a>
+        </div>
+      </div>
+      <div class="right-content">
+        <div class="dog">
+          <div class="heart heart--1"></div>
+          <div class="heart heart--2"></div>
+          <div class="heart heart--3"></div>
+          <div class="heart heart--4"></div>
+          <div class="head">
+            <div class="ear ear--left"></div>
+            <div class="ear ear--right"></div>
+            <div class="nose"></div>
+            <div class="face">
+              <div class="eye eye--left"></div>
+              <div class="eye eye--right"></div>
+              <div class="mouth"></div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="cheast"></div>
+            <div class="back"></div>
+            <div class="legs">
+              <div class="legs__front legs__front--left"></div>
+              <div class="legs__front legs__front--right"></div>
+              <div class="legs__back legs__back--left"></div>
+              <div class="legs__back legs__back--right"></div>
+            </div>
+            <div class="tail"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus Section -->
+    <section id="focus">
+      <div class="focus1">
+        <i class='bx bx-check-shield'></i>
+        <h3>Premium Quality</h3>
+        <p>Carefully selected products meeting our high standards</p>
+      </div>
+      <div class="focus1">
+        <i class='bx bxs-package'></i>
+        <h3>Free Delivery</h3>
+        <p>Free shipping on orders over $10</p>
+      </div>
+      <div class="focus1">
+        <i class='bx bx-time-five'></i>
+        <h3>24/7 Support</h3>
+        <p>Expert assistance whenever you need it</p>
+      </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="Shop">
+      <div class="header">
+        <h2>Featured Collection</h2>
+        <p>Discover our most sought-after premium pet products</p>
+      </div>
+      <div class="Lower">
+        <div class="disp-product">
+          <div class="product">
+            <div class="image"><img src="../assets/dog-ass-1.webp" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>Wiggles Wet Dog Food - Real Chicken & Veggies for Puppies, Adults & Seniors</h3>
+              <p class="uni">Dogs of all ages</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹594</p>
+                  <button class="add-to-cart" data-id="p1" data-name="Wiggles Wet Dog Food - Real Chicken & Veggies for Puppies, Adults & Seniors" data-price="594" data-image="../assets/dog-ass-1.webp">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/dog-ass-2.webp" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>Wigheal Wound Healing Spray for Dogs & Cats - 50 ml</h3>
+              <p class="uni">Dogs and Cats</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹475</p>
+                  <button class="add-to-cart" data-id="p2" data-name="Wigheal Wound Healing Spray for Dogs & Cats - 50 ml" data-price="475" data-image="../assets/dog-ass-2.webp">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/dog-ass-3.webp" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>EveryDawg Puppy Dry Dog Food - Chicken, Rice & Vegetables</h3>
+              <p class="uni">Puppy (2–21 months)</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹357</p>
+                  <button class="add-to-cart" data-id="p3" data-name="EveryDawg Puppy Dry Dog Food - Chicken, Rice & Vegetables" data-price="357" data-image="../assets/dog-ass-3.webp">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/cat food.jpg" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>Purepet Ocean Fish Adult Cat Dry Food</h3>
+              <p class="uni">cat (2–21 months)</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹957</p>
+                  <button class="add-to-cart" data-id="p4" data-name="Purepet Ocean Fish Adult Cat Dry Food" data-price="957" data-image="../assets/cat food.jpg">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/cat shampoo.jpg" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3> Ttk Hug n Wag Professional Mild Cat Shampoo with Pro Vitamin B5 </h3>
+              <p class="uni">cat (2–21 months)</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹217</p>
+                  <button class="add-to-cart" data-id="p5" data-name="Ttk Hug n Wag Professional Mild Cat Shampoo with Pro Vitamin B5" data-price="217" data-image="../assets/cat shampoo.jpg">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/cat soap.jpg" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>Saitrayaa Animology Feline Great Cat Shampoo 250ml</h3>
+              <p class="uni">cat (2–21 months)</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹857</p>
+                  <button class="add-to-cart" data-id="p6" data-name="Saitrayaa Animology Feline Great Cat Shampoo 250ml" data-price="857" data-image="../assets/cat soap.jpg">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/rabbit food.jpg" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>FloofYou Fibre Rich Forage Mix Rabbit Treats </h3>
+              <p class="uni">Rabbit (2–21 months)</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹1178</p>
+                  <button class="add-to-cart" data-id="p7" data-name="FloofYou Fibre Rich Forage Mix Rabbit Treats" data-price="1178" data-image="../assets/rabbit food.jpg">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/rabbit shampoo.jpg" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>Pet Life Pure Organic White And Bright Pet Shampoo For Small Pets, Rabbits & Kitten - Healthy Shiny Coat</h3>
+              <p class="uni">Rabbit (2–21 months)</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹557</p>
+                  <button>Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="image"><img src="../assets/dog-ass-4.webp" alt="" height="201" width="200"></div>
+            <div class="desc">
+              <h3>EveryDawg Adult Dry Dog Food - Chicken, Rice & Vegetables</h3>
+              <p class="uni">9 months to 7 years</p>
+              <div class="add-btn">
+                <div class="btn-pos">
+                  <p class="price">MRP ₹319</p>
+                  <button class="add-to-cart" data-id="p8" data-name="EveryDawg Adult Dry Dog Food - Chicken, Rice & Vegetables" data-price="319" data-image="../assets/dog-ass-4.webp">Add item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>PawPals</h2>
+        <p>Elevating pet care with premium products for your beloved companions.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="contact.html">Help center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns & refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter">
+        <h3>Newsletter</h3>
+        <p>Join our pack for offers, tips, and updates.</p>
+        <form class="newsletter-form" onsubmit="return subscribeNews(event)">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="footer-social-icons">
+          <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+          <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+          <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 PawPals. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+    function subscribeNews(e){
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const input = e.target.querySelector('input[type="email"]');
+      const prev = btn.textContent;
+      btn.textContent = 'Subscribed ✓';
+      btn.style.background = '#16a34a';
+      setTimeout(()=>{btn.textContent = prev; btn.style.background = '#2563eb';}, 2000);
+      input.value='';
+      return false;
+    }
+  </script>
+  <script src="../assets/app.js"></script>
+</body>
+
+</html>

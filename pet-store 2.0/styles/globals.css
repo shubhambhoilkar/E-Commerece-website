@@ -1,0 +1,35 @@
+@import url('https://unpkg.com/boxicons@latest/css/boxicons.min.css');
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #ffb703;
+  padding: 10px 0;
+  text-align: center;
+}
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+.container {
+  padding: 20px;
+}
+button {
+  cursor: pointer;
+}
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
